@@ -1,44 +1,30 @@
-# Tic-Tac-Toe TP
-Le TP est à rendre au plus tard **lundi 8 avril 2024, minuit**, par mail en signalant votre nom, prénom et le lien du repository public sur lequel se trouve vos livrables, le mail d'envoi **et** l'historique des commits faisant foi.
+# Workflow GitHub
 
-Il vous est possible de vous entre-aider mais votre rendu est **personnel** sauf mention contraire expresse pour les situations identifiées en amont.
+Le workflow GitHub est un modèle de gestion de versions basé sur Git qui se concentre principalement sur une branche principale et des branches de fonctionnalités. Dans ce modèle, la branche principale (généralement nommée `master`) représente l'état de production du projet. Les nouvelles fonctionnalités sont développées dans des branches distinctes avant d'être fusionnées dans la branche principale via des pull requests.
 
-## Instructions
+## Fonctionnement du Workflow GitHub
 
-### Préparer son environnement
-- A partir du docker-compose disponible sur le repository [docker-gitlab-jenkins](https://github.com/June-Ruth/docker-gitlab-jenkins)
+1. **Branche Principale :** La branche principale (`master`) contient le code de production stable. C'est à partir de cette branche que sont déployées les versions du logiciel.
 
-### Récupérer le projet en local
-- Clôner le projet en local
-- Mettre en place le projet sur le GitLab local avec le nom formaté selon le schéma suivant : **_nom_prenom_tic-tac-toe_**
+2. **Branches de Fonctionnalités :** Chaque nouvelle fonctionnalité ou modification est développée dans une branche de fonctionnalités distincte. Ces branches sont généralement créées à partir de la branche principale et portent des noms descriptifs, comme `pipeline`.
 
-### Création d'une pipeline d'intégration et de déploiement
-La pipeline doit être formatée selon le schéma suivant : **_nom_prenom_tic-tac-toe_**
-#### Outils
-- La pipeline doit être éxécutée à partir de la plateforme d'intégration continue Jenkins
-#### Fréquence
-- La pipeline doit pouvoir être exécutée manuellement
-- La pipeline doit être exécutée à chaque action de push et de merge request
-##### Contenu
-- La pipeline doit exécuter les tests
-- Le stage de test doit mentionner le type de tests exéutés selon la pyramide des tests (soit dans son nom, soit dans la console lors de l'exécution)
-- La pipeline doit fournir un rapport de couverture Clover
-- La pipeline doit fournir les artefacts de distribution nécessaires au déploiement
+3. **Pull Requests :** Une fois qu'une fonctionnalité est développée et testée dans sa branche de fonctionnalités respective, un pull request est créé pour fusionner les modifications dans la branche principale. Les pull requests permettent aux développeurs de discuter des modifications, de passer en revue le code et de s'assurer que les tests sont réussis avant la fusion.
 
-### Correction des tests
-- Les tests non-validés par la pipeline doivent être corrigés afin d'être valides
+4. **Intégration Continue :** Idéalement, chaque pull request déclenche un processus d'intégration continue qui exécute des tests automatiques pour s'assurer que les modifications ne cassent pas le code existant.
 
-## Livrables
-- Le code final sera rendu disponible sur un repository public
-- La branche principale (main) sera à jour de l'ensemble des modifications
-- Le code final devra conserver l'historique des branches et commits
-- Le README présentera le workflow Git choisi en expliquant ses avantages et/ou inconvénients
-- Le repository disposera d'un package spécifique pour les documents issus de la pipeline :
-  - le rapport de couverture Clover fourni lors du dernier cycle Jenkins (format .html)
-  - une copie (format .pdf) du dashboard principal de la **pipeline** sur Jenkins présentant au moins un cycle exécuté de manière automatique, les artefacts issue du build et le résumé de la couverture Clover
-  - une copie (format .pdf) des paramètres mis en place sur GitLab servant à l'intégration de Jenkins
- 
-## Attention
-- Les projets qui ne respectent pas les conventions de nommage ne seront pas évalués.
-- Les projets dont l'historique git n'est pas accessible ne seront pas évalués.
-- Les repository innaccessibles (adresse erronée, settings non-public) ne seront pas évaluées.
+5. **Déploiement :** Une fois qu'un pull request est fusionné dans la branche principale, les modifications sont considérées comme prêtes à être déployées en production. Le code est ensuite déployé sur les serveurs de production.
+
+## Avantages du Workflow GitHub
+
+- **Simplicité :** Le workflow GitHub est simple et facile à comprendre, ce qui le rend idéal pour les petits projets ou les équipes moins expérimentées.
+- **Contrôle des Modifications :** Les pull requests offrent un mécanisme de contrôle et de révision du code avant son intégration dans la branche principale, améliorant ainsi la qualité du code.
+- **Collaboration :** Les pull requests favorisent la collaboration en permettant aux membres de l'équipe de discuter des modifications, de donner des commentaires et de suggérer des améliorations.
+
+## Inconvénients du Workflow GitHub
+
+- **Manque de Structuration :** Pour les projets plus complexes, le modèle simple de branche principale et de branches de fonctionnalités peut manquer de structuration et de contrôle.
+- **Possibilité de Conflits :** Si plusieurs fonctionnalités sont développées en parallèle, cela peut entraîner des conflits lors de la fusion des pull requests dans la branche principale.
+
+## Conclusion
+
+Le workflow GitHub est une approche simple et efficace pour la gestion de versions et la collaboration sur des projets de développement logiciel. Il convient particulièrement bien aux petits projets ou aux équipes moins expérimentées grâce à sa simplicité et à son processus de fusion contrôlée via les pull requests. Cependant, pour les projets plus complexes, il peut être nécessaire d'adopter des workflows plus structurés et plus rigoureux.
