@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+        
+                git 'https://github.com/ngena-kenn/tic_tac_teo.git'
+            }
+        }
+        
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+            post {
+                always {
+                    archiveArtifacts(artifacts: 'build/**')
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                sh 'scp -r build/* user@server:/path/to/deploy'
+            }
+        }
+    }
+}
