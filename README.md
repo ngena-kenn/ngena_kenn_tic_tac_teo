@@ -27,4 +27,5 @@ Le workflow GitHub est un modèle de gestion de versions basé sur Git qui se co
 
 ## Conclusion
 
-Le workflow GitHub est une approche simple et efficace pour la gestion de versions et la collaboration sur des projets de développement logiciel. Il convient particulièrement bien aux petits projets ou aux équipes moins expérimentées grâce à sa simplicité et à son processus de fusion contrôlée via les pull requests. Cependant, pour les projets plus complexes, il peut être nécessaire d'adopter des workflows plus structurés et plus rigoureux.
+Le workflow GitHub est une approche simple et efficace pour la gestion de versions et la collaboration sur des projets de développement logiciel. Il convient particulièrement bien aux petits projets ou aux équipes moins expérimentées grâce à sa simplicité et à son processus de fusion contrôlée via les pull requests. Cependant, pour les projets plus complexes, il peut être nécessaire d'adopter des workflows plus structurés et plus rigoureux.  
+merci
